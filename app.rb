@@ -27,7 +27,7 @@ post '/visit' do
 	your barber is #{@barber_name}"
 
 	f = File.open './public/order.txt','a'
-	f.write "User: #{@user_name}, contact: #{@phone}, date and time: #{@date_time}\n" 
+	f.write "User: #{@user_name}, contact: #{@phone}, date and time: #{@date_time} , barber: #{@barber_name}\n" 
 	f.close
 	
 	erb :order_message 
