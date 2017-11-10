@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html >
+
 	<head>
 		<title>Barber Shop</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,13 @@
 		  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<body>
+	<style >
+		body{
+			background: url(br_chop.png) no-repeat center center fixed ;
+			background-size: cover;
+		}
+	</style>
+	<body >
 		<div class="container">
 
 			<!-- Static navbar -->
@@ -42,13 +49,12 @@
 			      <% end %>
 			      <%= yield %>
 			</div>
+		</div>
 
-	</div>
 
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/vendor/jquery-1.9.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-  </body>
+   		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="/vendor/jquery-1.9.1.min.js"></script>
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  	</body>
 </html>
