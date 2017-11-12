@@ -21,6 +21,21 @@ post '/visit' do
 	@phone = params[:phone]
 	@date_time = params[:date_time]
 	@barber_name = params[:barber_name]
+
+	# Check validation
+	
+	hh_valid = {:user_name  => 'Enter your name',
+			:phone => 'Enter your phone',
+			:date_time => 'Enter date & time',
+			:barber_name => 'choose a barber'
+		}
+
+	hh_valid.each do |key,value|
+		if (params[key] == '' || params[key]=='underfined')
+			@error = hh_valid[key]
+			return erb :visit			
+		end
+	end 	
 	
 	@title = 'Thank you !'
 	@message = "Dear #{@user_name}, we will be waiting for you at #{@date_time},
