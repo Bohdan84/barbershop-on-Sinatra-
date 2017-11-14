@@ -4,15 +4,15 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 configure do
-	@db = SQLite3::Database.new 'barbershop.db'
-	@db.execute 'CREATE TABLE IF NOT EXISTS 
+	db = SQLite3::Database.new 'barbershop.db'
+	db.execute 'CREATE TABLE IF NOT EXISTS 
 	"Users" 
 	(
 		"id"  INTEGER PRIMARY KEY AUTOINCREMENT,
 		"user" VARCHAR (128) NOT NULL, 
 		"phone"  VARCHAR (45)  NOT NULL,
 		"barber" VARCHAR (45)  NOT NULL, 
-		"data" VARCHAR (45)  NOT NULL, 
+		"date" VARCHAR (45)  NOT NULL, 
 		"time"   VARCHAR (45)  NOT NULL
 	)'
 end
@@ -65,9 +65,21 @@ post '/visit' do
 	@message = "Dear #{@user_name}, we will be waiting for you on #{@date} at #{@time},
 	your barber is #{@barber}"
 
-	f = File.open './public/order.txt','a'
-	f.write "User: #{@user_name}, contact: #{@phone}, date and time: #{@date_time} , barber: #{@barber}\n" 
-	f.close
+	db = get_db
+	db.execute 'insert into 
+	Users
+	(
+		user,
+		phone,
+		date,
+		time,
+		barber
+	)
+	values ( ?, ?, ?, ?, ?	)' , [@user_name, @phone, @date, @time, @barber]
 	
 	erb :order_message 
+end
+
+def get_db
+	return SQLite3::Database.new 'barbershop.db'
 end
