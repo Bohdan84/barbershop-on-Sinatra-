@@ -1,57 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Enroll to Us</title>
-  <style type="text/css">
-    h2 {
-      color: Snow;
-      font-family:verdana;
+  <head>
+    <title>Enroll to Us</title>
+    <style type="text/css">
+      h2 {
+        color: Snow;
+        font-family:verdana;
       }
       body{
-      color: Snow;
-      font-family:verdana;
+        color: Snow;
+        font-family:verdana;
       }
-  </style>
-</head>
-<body>
-
-</body>
+      p1{
+        color: black;
+        font-family:verdana;
+    </style>
+  </head>
+  <body>
+    <h2>Enroll to Us</h2>
+    <p>On this page you wiil be able to enroll to MR.WALTER barber shop</p>
+     <p></p>
+    <form action="/visit" method="POST" role="form">  
+      <p class="form-group">
+        <label>Your name</label>
+        <input name="user_name" type="text" class="form-control" placeholder="Enter your name" value=<%= @user_name %>>
+      </p>
+      <p class="form-group" >
+        <label> Your phone &nbsp </label> 
+      <span class="glyphicon glyphicon-phone-alt" aria-hidden="true">
+        </span>
+        <input name="phone" type="text" class="form-control" placeholder="Enter your phone" value=<%= @phone %>>  
+      </p>
+      <p class="form-group">
+        <label>Please, choose a barber </label>
+        <select class="form-control" name="barber"> 
+          <option<%= @barber=='Snoop Dog' ? ' selected ' : '' %>>Snoop Dog</option>
+          <option<%= @barber=='Gerard Butler' ? ' selected ' : '' %>>Gerard Butler </option>
+          <option<%= @barber=='Frank Sinatra' ? ' selected ' : '' %>>Frank Sinatra</option>
+          <option<%= @barber=='Charli Chaplin' ? ' selected ' : '' %>>Charli Chaplin</option>
+          <option<%= @barber=='Bruce Willis' ? ' selected ' : '' %>>Bruce Willis</option>
+        </select>
+      </p>
+      <br>
+      <p>
+        <label>When can we wait for you? &nbsp</label>
+        <span class="glyphicon glyphicon-bell" aria-hidden="false">
+        </span><br>
+        <label>Enter date </label>
+        <p1>
+           <input name="date" type="date" value=<%= @date %>>
+         </p1>  <br>
+         <p></p>
+        <label>Enter time </label>
+        <p1>   
+          <input name="time" type="time" value=<%= @time %> >
+        </p1>
+      </p>
+      <br>  
+      <p>
+        <button type="submit" class="btn btn-primary">Enroll</button>
+      </p>
+    </form>
+  </body>
 </html>
-<h2>Enroll to Us</h2>
-<p>On this page you wiil be able to enroll to MR.WALTER barber shop</p>
-
-<form action="/visit" method="POST" role="form">
-
-  <div class="form-group">
-    <label>Your name</label>
-    <input name="user_name" type="text" class="form-control" placeholder="Enter your name" value=<%= @user_name %>>
-  </div>
-
-  <div class="form-group" >
-    <label> Your phone &nbsp </label> 
-    <span class="glyphicon glyphicon-phone-alt" aria-hidden="true">
-    </span>
-    <input name="phone" type="text" class="form-control" placeholder="Enter your phone" value=<%= @phone %>> 
-  </div>
-
-  <div class="form-group">
-    <label>When can we wait for you? &nbsp</label>
-    <span class="glyphicon glyphicon-bell" aria-hidden="true">
-    </span>
-    <input name="date_time" type="text" class="form-control" placeholder="Enter date and time" value=<%= @date_time %>>     
-  </div>
-  <div>
-   <label>Please, choose a barber &nbsp</label>
-    <select class="form-control" name="barber_name"> 
-      <option>underfined</option>
-      <option>Snoop Dog</option>
-      <option>Gerard Butler </option>
-      <option>Frank Sinatra</option>
-      <option>Charli Chaplin</option>
-      <option>Bruce Willis</option>
-    </select>
-    <br>
-  </div>
-  <br>  
-  <button type="submit" class="btn btn-primary">Enroll</button>
-</form>
