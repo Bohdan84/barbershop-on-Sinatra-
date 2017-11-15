@@ -3,6 +3,14 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
 
+def is_barber_exist? db,name
+	db.execute('select * from Barbers where name = ?', [name]).length > 0
+end
+
+def seed_db db,barbers
+
+end
+
 def get_db
 	db = SQLite3::Database.new 'barbershop.db'
 	db.results_as_hash = true
@@ -21,6 +29,14 @@ configure do
 		"date" VARCHAR (45)  NOT NULL, 
 		"time"   VARCHAR (45)  NOT NULL
 	)'
+	db.execute 'CREATE TABLE IF NOT EXISTS 
+	"Barbers" 
+	(
+		"id"  INTEGER PRIMARY KEY AUTOINCREMENT,
+		"name" VARCHAR (128) 
+	)'
+
+	seed_db db,['Snoop Dog','Gerard Butler','Frank Sinatra','Charli Chaplin','Bruce Willis']
 end
 	get '/' do
 	erb "WELCOME TO MR.WALTER Barber Shop "			
