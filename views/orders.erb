@@ -1,0 +1,24 @@
+<table class="table ">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>Barber</th>
+			<th>Date</th>
+			<th>Time</th>
+	</tr>
+	</thead>
+	<body>
+	
+		<% @result.each do |row|%>
+		<tr>
+			<td><%= row['user'] %></td>
+			<td><%= row['phone'] %></td>
+			<td><%= row['barber'] %></td>
+			<td><%= row['date'] %></td>
+			<td><%= row['time'] %></td>
+		</tr>
+
+		<% end %>
+	</body>
+</table>
